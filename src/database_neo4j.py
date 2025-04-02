@@ -2,8 +2,9 @@
 #https://neo4j.com/docs/api/python-driver/current/  codelien
 
 from neo4j import GraphDatabase
+#from config import NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD
+#Utiliser pour le import dataneo pcq il est déjà dans src
 from src.config import NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD
-
 def connexion_neo4j():
     try:
         driver = GraphDatabase.driver(NEO4J_URI, auth=(NEO4J_USERNAME, NEO4J_PASSWORD))

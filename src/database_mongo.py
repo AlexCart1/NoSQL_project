@@ -1,6 +1,7 @@
 from pymongo import MongoClient
 from src.config import MONGO_URI, MONGO_DB_NAME
-
+#from config import MONGO_URI, MONGO_DB_NAME
+# Utiliser pour les import data neo
 def connexion_mongo():
     try:
         client = MongoClient(MONGO_URI, serverSelectionTimeoutMS=3000)

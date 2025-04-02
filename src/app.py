@@ -4,14 +4,15 @@ from src.database_neo4j import connexion_neo4j, deconnexion_neo4j
 
 def menu():
     print("\nProjet NoSQL - Menu principal")
-
+    #Connection aux base de données durant la boucle principale
     mongo_client, mongo_db = connexion_mongo()
     neo4j_driver = connexion_neo4j()
 
     if not mongo_client or not neo4j_driver:
         print("Connexion échouée. Fermeture.")
         return
-
+    
+    # mise à jour des variable du code questions.py pour travailler avec directement la bas 
     questions.mongo_db = mongo_db
     questions.neo4j_driver = neo4j_driver
 
@@ -23,6 +24,7 @@ def menu():
                 break
             elif 1 <= choice <= 30:
                 getattr(questions, f"question_{choice}")()
+                print("\n----------------------------------------------------------")
             else:
                 print("Entrée hors limites.")
         except Exception as e:

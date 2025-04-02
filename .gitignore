@@ -1,17 +1,20 @@
-
+# Environnement virtuel
 .venv/
 
+# Cache Python
 __pycache__/
 *.pyc
 *.pyo
 
+# Variables d'environnement
 .env
 
+# Fichiers inutiles
 *.log
 .DS_Store
 
-# Exclure le fichier de configuration contenant les identifiants
+# Fichier de configuration contenant des infos sensibles
 src/config.py
 
-# Fichiers textes contenant des mots de passe (facultatif mais recommandé)
+# Fichiers texte de logins ou connexions
 *.txt
