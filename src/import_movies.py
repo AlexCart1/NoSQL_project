@@ -2,6 +2,7 @@ import json
 from pymongo import MongoClient
 import os
 
+# Ce code a été un test mais au final j'ai importé les donnés directement à l'aide de mongodb atlas que j'ai connecté à la base de données en ligne
 movies_file_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), "movies.json") #Pour le with open 
 
 url_mongo = "mongodb+srv://cartiaux:8nDWEXS7HXNair3c@projectsql.yim3r.mongodb.net/"

@@ -1,4 +1,4 @@
-#Fonction de base neo4j
+#Queries neo4j pour es question 13 à 26
 from neo4j import GraphDatabase
 
 def get_actor_with_most_films(driver):
@@ -15,8 +15,6 @@ def get_actor_with_most_films(driver):
             print(f"L'acteur ayant joué dans le plus grand nombre de films est {actor['Actor']} avec {actor['FilmCount']} films.")
         else:
             print("Aucun acteur trouvé.")
-
-# queries_neo4j.py
 
 def get_actors_with_anne_hathaway(driver):
     query = """

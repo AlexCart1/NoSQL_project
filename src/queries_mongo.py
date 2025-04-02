@@ -1,4 +1,5 @@
 # Requêtes MongoDB
+# Retourne une liste dans questions.py en fonction de la question. Les premiers sont génériques et ont été utilisés plusieurs fois dans le code
 
 def get_all_movies(db):
     #Retourne les films dans 'movies'.
