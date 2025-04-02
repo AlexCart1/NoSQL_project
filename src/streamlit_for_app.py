@@ -12,7 +12,7 @@ Bienvenue sur le dashboard du projet NoSQL !
 Voici quelques exemples des réponses du projet NoSQL 2025 pour les 4a Outils : 
 MongoDB et Neo4j 
 
-github : https://github.com/...
+github : https://github.com/AlexCart1/NoSQL_project
 """)
 
 st.header("Question 4 : Nombre de films par année")
@@ -27,12 +27,10 @@ st.header("Question 25 : Lien entre Tom Hanks et Scarlett Johansson")
 st.image("doc/question_25.png", caption="Le chemin le plus court entre 2 acteurs", width=600)
 
 
-# Nouvelle question - Films et Genres
 st.header("Films et leur genre")
 st.image("doc/Film et leur genre.png", caption="Films et leur genre", width=600)
 
 
-# Nouvelle question - Influence entre réalisateurs
 st.header("Influence entre réalisateurs")
 st.image("doc/influence entre realisateur.png", caption="Influence entre réalisateurs basée sur les genres", width=600)
 

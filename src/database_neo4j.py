@@ -11,13 +11,13 @@ def connexion_neo4j():
         driver.verify_connectivity()
         print("Connexion à Neo4j réussie")
         return driver
-    except Exception as e:
-        print(f"Erreur de connexion à Neo4j : {e}")
+    except Exception as err:
+        print(f"Erreur de connexion à Neo4j : {err}") # Allume la database depuis le serveur
         return None
 
 def deconnexion_neo4j(driver):
     try:
         driver.close()
         print("Déconnexion de Neo4j effectuée")
-    except Exception as e:
-        print(f"Erreur lors de la déconnexion de Neo4j : {e}")
+    except Exception as err:
+        print(f"Erreur durant de la déconnexion de Neo4j : {err}") 

@@ -3,6 +3,8 @@ from database_mongo import connexion_mongo
 from database_neo4j import connexion_neo4j, deconnexion_neo4j
 from neo4j import GraphDatabase
 
+# Connexino à db mongo & à neo4j
+# Pour chaque films, noeud films, noeuds genres, noeuds acteurs
 
 def get_movies_from_mongo():
     client, db = connexion_mongo()
@@ -12,7 +14,7 @@ def get_movies_from_mongo():
     movies_collection = db['movies']
     return list(movies_collection.find())
 
-
+# Enlever les apostrophes sinon contraintes sur calcul et autre....
 def escape_quotes(text):
     if text is not None:
         return text.replace("'", "\\'")
@@ -25,7 +27,7 @@ def create_constraints(driver):
         session.run("CREATE CONSTRAINT actor_name_unique IF NOT EXISTS FOR (a:Actor) REQUIRE a.name IS UNIQUE")
         session.run("CREATE CONSTRAINT genre_name_unique IF NOT EXISTS FOR (g:Genre) REQUIRE g.name IS UNIQUE")
 
-
+#Noeud film
 def create_film_node(tx, title, year, revenue, director, votes):
     title = escape_quotes(title)
     director = escape_quotes(director)
@@ -50,18 +52,19 @@ def create_film_node(tx, title, year, revenue, director, votes):
     tx.run(query)
 
 
+#Noeud acteur
 def create_actor_node(tx, actor_name):
     actor_name = escape_quotes(actor_name)
     query = "MERGE (a:Actor {name: $name})"
     tx.run(query, name=actor_name)
 
-
+#neouds genre
 def create_genre_node(tx, genre):
     genre = escape_quotes(genre)
     query = "MERGE (g:Genre {name: $name})"
     tx.run(query, name=genre)
 
-
+#Relation
 def create_relationship(tx, film_title, actor_name, genre):
     film_title = escape_quotes(film_title)
     actor_name = escape_quotes(actor_name)
@@ -79,7 +82,7 @@ def create_relationship(tx, film_title, actor_name, genre):
     )
     tx.run(query_genre, film_title=film_title, genre=genre)
 
-
+#main 
 def insert_movies_into_neo4j():
     driver = connexion_neo4j()
     if driver:
@@ -111,5 +114,6 @@ def insert_movies_into_neo4j():
         deconnexion_neo4j(driver)
 
 
+# executer une fois pour import les donnés ( sinon match n delete n dans neo4j)
 if __name__ == "__main__":
     insert_movies_into_neo4j()
